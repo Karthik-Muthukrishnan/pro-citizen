@@ -1,6 +1,8 @@
 ProCitizen::Application.routes.draw do
  
+
   resources :users 
+  resources :areas
   resources :sessions, only: [:new, :create, :destroy]
   
   root to: 'static_pages#home'
@@ -10,6 +12,7 @@ ProCitizen::Application.routes.draw do
   match '/signup',  to: 'Users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
+  #match '/area', to: 'area#new'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

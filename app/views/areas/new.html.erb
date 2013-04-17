@@ -1,0 +1,18 @@
+<% provide(:title, 'New Circle') %>
+<h1>New Circle</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@area) do |f| %>
+     <%= render 'shared/area_error_messages' %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+
+      <%= f.submit "Define new circle", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
