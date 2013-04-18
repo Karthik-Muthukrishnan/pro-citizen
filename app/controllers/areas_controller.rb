@@ -24,6 +24,8 @@ class AreasController < ApplicationController
     end
   end
   
+  
+  
   private
 
     def signed_in_user

@@ -34,6 +34,8 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+  
+  
 
 private
 

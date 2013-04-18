@@ -1,0 +1,7 @@
+  <div id="follow_form">
+  <% if @area.following?(current_user) %>
+    <%= render 'unfollow' %>
+  <% else %>
+    <%= render 'follow' %>
+  <% end %>
+  </div>

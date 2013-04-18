@@ -1,0 +1,9 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="<%= users_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.areas.count %>
+    </strong>
+    following
+  </a>
+</div>

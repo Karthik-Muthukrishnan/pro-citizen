@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
   
+  has_many :user_area_relations, foreign_key: "user_id", dependent: :destroy
+  has_many :areas, through: :user_area_relations, source: :area
+  
   
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token

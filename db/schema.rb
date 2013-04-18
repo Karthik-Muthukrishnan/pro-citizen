@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417173011) do
+ActiveRecord::Schema.define(:version => 20130418170054) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(:version => 20130417173011) do
   end
 
   add_index "areas", ["name"], :name => "index_areas_on_name", :unique => true
+
+  create_table "user_area_relations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "area_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_area_relations", ["area_id"], :name => "index_user_area_relations_on_area_id"
+  add_index "user_area_relations", ["user_id", "area_id"], :name => "index_user_area_relations_on_user_id_and_area_id", :unique => true
+  add_index "user_area_relations", ["user_id"], :name => "index_user_area_relations_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

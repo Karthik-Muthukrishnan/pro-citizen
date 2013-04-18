@@ -5,7 +5,9 @@
       <h1>
         <%= @area.name %>
       </h1>
+      <%= render 'shared/area_stat' %>
       <p> <b> <%= @area.description %> </b> </p>
     </section>
+    <%= render 'follow_form' if signed_in? %>
   </aside>
 </div>
