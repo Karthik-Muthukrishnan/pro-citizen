@@ -2,8 +2,8 @@ class Area < ActiveRecord::Base
   attr_accessible :description, :name
   before_save { |area| area.name = name.downcase }
   
-  has_many :user_area_relations, foreign_key: "area_id", dependent: :destroy
-  has_many :users, through: :user_area_relations, source: :user
+  has_many :UserAreaRelations, foreign_key: "area_id", dependent: :destroy
+  has_many :users, through: :UserAreaRelations, source: :user
   
   
   validates :name, presence: true, uniqueness: { case_sensitive: false }, 
@@ -11,15 +11,8 @@ class Area < ActiveRecord::Base
   validates :description, presence: true
   
   def following?(user)
-    user_area_relations.find_by_user_id(user.id)
-  end
-  
-  def follow!(user)
-    user_area_relations.create!(user_id: user.id)
-  end
-  
-  def unfollow!(user)
-    user_area_relations.find_by_user_id(user.id).destroy
+    UserAreaRelation.exists?(['user_id = ? and area_id = ?', 
+                  user.id, self.id])
   end
   
 end

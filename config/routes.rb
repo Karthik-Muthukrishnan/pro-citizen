@@ -1,20 +1,21 @@
 ProCitizen::Application.routes.draw do
  
-
-  resources :users do
+ resources :user_area_relations, only: [:create, :destroy]
+  
+ 
+ resources :users do
     member do
-      get :area
+      get :areas
     end
   end
-  
+ 
   resources :areas do
     member do
-      get :user
+      get :users
     end
   end
   
   resources :sessions, only: [:new, :create, :destroy]
-  resources :UserAreaRelations, only: [:create, :destroy]
   
   root to: 'static_pages#home'
   

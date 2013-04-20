@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
   
-  has_many :user_area_relations, foreign_key: "user_id", dependent: :destroy
-  has_many :areas, through: :user_area_relations, source: :area
+  has_many :UserAreaRelations, foreign_key: "user_id", dependent: :destroy
+  has_many :areas, through: :UserAreaRelations, source: :area
   
   
   before_save { |user| user.email = email.downcase }
@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   			
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+  
+  
   
   private
 

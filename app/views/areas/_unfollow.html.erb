@@ -1,4 +1,4 @@
-<%= form_for(current_user.user_area_relations.find_by_area_id(@area),
-             html: { method: :delete }) do |f| %>
+<%= form_for(current_user.UserAreaRelations.find_by_area_id(@area.id),
+             html: { method: :delete }, remote: true) do |f| %>
   <%= f.submit "Unfollow", class: "btn btn-large" %>
 <% end %>

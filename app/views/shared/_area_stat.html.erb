@@ -1,6 +1,6 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <a href="<%= areas_path(@area) %>">
+  <a href="<%= users_area_path(@area) %>">
     <strong id="followers" class="stat">
       <%= @area.users.count %>
     </strong>
