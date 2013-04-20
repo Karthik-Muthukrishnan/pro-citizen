@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   
   has_many :UserAreaRelations, foreign_key: "user_id", dependent: :destroy
   has_many :areas, through: :UserAreaRelations, source: :area
+  has_many :posts, foreign_key: "user_id", dependent: :destroy
   
   
   before_save { |user| user.email = email.downcase }
@@ -17,6 +18,9 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
   
+  def feed
+    Post.from_users_followed_by(self)
+  end
   
   
   private

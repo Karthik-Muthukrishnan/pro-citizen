@@ -1,7 +1,7 @@
 ProCitizen::Application.routes.draw do
  
  resources :user_area_relations, only: [:create, :destroy]
-  
+  resources :posts, only: [:create, :destroy]
  
  resources :users do
     member do

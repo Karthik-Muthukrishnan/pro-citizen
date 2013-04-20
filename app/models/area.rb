@@ -4,7 +4,7 @@ class Area < ActiveRecord::Base
   
   has_many :UserAreaRelations, foreign_key: "area_id", dependent: :destroy
   has_many :users, through: :UserAreaRelations, source: :user
-  
+  has_many :posts, foreign_key: "area_id", dependent: :destroy
   
   validates :name, presence: true, uniqueness: { case_sensitive: false }, 
       length: {maximum: 25}

@@ -1,16 +1,12 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
-          <% if signed_in? %>
-            <%= link_to "Citizen", current_user , id: "logo" %>
-         <% else %>
-            <%= link_to "Citizen", root_path , id: "logo" %>
-          <% end %>
+          <%= link_to "Citizen", root_path , id: "logo" %>
           <nav>
             <ul class="nav pull-right">
               
               <% if signed_in? %>
-            		<li><%= link_to "Home",    current_user %></li>
+            		<li><%= link_to "Home",    root_path %></li>
             		<li id="cir-menu" class="dropdown">
             		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 		Circles <b class="caret"></b>

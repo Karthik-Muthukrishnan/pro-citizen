@@ -1,0 +1,6 @@
+<% @user ||= current_user %>
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+      <%= render 'shared/user_stat' %>

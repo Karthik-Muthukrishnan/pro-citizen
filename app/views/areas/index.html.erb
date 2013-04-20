@@ -2,10 +2,6 @@
 <h1>All circles</h1>
 
 <ul class="areas">
-  <% @areas.each do |area| %>
-    <li>
-      <%= link_to area.name, area %>
-      <b> <%= area.description %> </b>
-    </li>
-  <% end %>
+  <%= render @areas %>
 </ul>
+<%= will_paginate %>

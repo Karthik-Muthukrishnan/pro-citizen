@@ -2,11 +2,16 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-      <%= render 'shared/user_stat' %>
+        <%= render 'shared/user_info' %>
     </section>
   </aside>
+  <div class="span8">
+    <% if @user.posts.any? %>
+      <h2>Posts (<%= @user.posts.count %>)</h2>
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
+    <% end %>
+  </div>
 </div>

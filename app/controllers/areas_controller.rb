@@ -6,11 +6,14 @@ class AreasController < ApplicationController
   end
   
   def index
-  	@areas = Area.all
+  	@areas = Area.paginate(page: params[:page])
   end
   
   def show
     @area = Area.find(params[:id])
+    @posts = @area.posts.paginate(page: params[:page])
+    @post = @area.posts.build if signed_in?
+    store_location
   end
   
   def create
@@ -25,13 +28,5 @@ class AreasController < ApplicationController
   end
   
   
-  
-  private
 
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "Please sign in."
-      end
-    end
 end

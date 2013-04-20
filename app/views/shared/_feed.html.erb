@@ -1,0 +1,6 @@
+<% if @posts.any? %>
+  <ol class="posts">
+    <%= render partial: 'posts/post', collection: @posts %>
+  </ol>
+  <%= will_paginate @posts %>
+<% end %>

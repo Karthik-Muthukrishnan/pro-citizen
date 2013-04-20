@@ -5,9 +5,22 @@
       <h1>
         <%= @area.name %>
       </h1>
-      <%= render 'shared/area_stat' %>
-      <p> <b> <%= @area.description %> </b> </p>
+      <b> <%= @area.description %> </b> 
     </section>
+    <%= render 'shared/area_stat' %>
     <%= render 'follow_form' if signed_in? %>
   </aside>
+  
+  <div class="span8">
+  	<section>
+        <%= render 'shared/post_form' %>
+      </section>
+    <% if @area.posts.any? %>
+      <h3>Posts (<%= @area.posts.count %>)</h3>
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
+    <% end %>
+  </div>
 </div>
