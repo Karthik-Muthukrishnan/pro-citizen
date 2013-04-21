@@ -1,5 +1,5 @@
 <%= form_for(current_user.UserAreaRelations.build(area_id: @area.id), 
               remote: true) do |f| %>
   <div><%= f.hidden_field :area_id %></div>
-  <%= f.submit "Follow", class: "btn btn-large btn-primary" %>
+  <%= f.submit "Follow", class: "btn btn-medium btn-primary" %>
 <% end %>

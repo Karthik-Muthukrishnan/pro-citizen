@@ -6,14 +6,15 @@ class AreasController < ApplicationController
   end
   
   def index
-  	@areas = Area.paginate(page: params[:page])
+  	@areas_all = Area.paginate(page: params[:page])
+  	@areas = current_user.areas
   end
   
   def show
     @area = Area.find(params[:id])
     @posts = @area.posts.paginate(page: params[:page])
     @post = @area.posts.build if signed_in?
-    store_location
+    @areas = current_user.areas
   end
   
   def create

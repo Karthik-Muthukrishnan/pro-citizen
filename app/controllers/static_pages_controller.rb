@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
 		if signed_in?
       		@post  = current_user.posts.build
       		@posts = current_user.feed.paginate(page: params[:page])
+      		@areas = current_user.areas
     	end
 	end
 	

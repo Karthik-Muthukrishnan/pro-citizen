@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style = "height: 100%">
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", media: "all" %>
@@ -7,18 +7,32 @@
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
-<body>
-<%= render 'layouts/header' %>      
+<body style = "height: 80%">
+<div id = "homeoutercontainer" style = "height: 100%; ">
+
+    <%= render 'layouts/header' %>
+         
     <div class="container">
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value, class: "alert alert-#{key}") %>
       <% end %>
       
       <%= yield %>
-      <%= render 'layouts/footer' %>    
-
-	  <%= debug(params) if Rails.env.development? %>  
+       
 
     </div>
-</body>
+    
+    	
+    <div class="container">
+    	<% if !signed_in? %>
+		<%= render 'layouts/footer' %>
+	<% end %>	    
+
+	  <%= debug(params) if Rails.env.development? %> 
+    </div>
+    
+</div>
+
+  
+</body >
 </html>

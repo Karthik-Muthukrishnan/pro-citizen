@@ -10,14 +10,20 @@
 
 html {
   overflow-y: scroll;
-}
+  min-height: 100%;
+  }
 
 body {
   padding-top: 60px;
-}
+  min-height: 100%;
+  }
 
 section {
   overflow: auto;
+}
+
+div {
+	min-height: 100%;
 }
 
 textarea {
@@ -59,6 +65,7 @@ p {
   line-height: 1.7em;
 }
 
+
 /* header */
 
 #logo {
@@ -78,6 +85,10 @@ p {
   text-decoration: none;
 }
 
+/* home page vertical alignment */
+
+#homeoutercontainer { position:relative }
+#homeinnercontainer { position:absolute; top:50%; height:10em; margin-top:-5em }
 
 /* footer */
 
@@ -138,7 +149,7 @@ aside {
 
 .stats {
   overflow: auto;
-  a {
+  p {
     float: left;
     padding: 0 10px;
     border-left: 1px solid $grayLighter;
@@ -147,16 +158,23 @@ aside {
       padding-left: 0;
       border: 0;
     }
-    &:hover {
-      text-decoration: none;
-      color: $blue;
-    }
   }
   strong {
     display: block;
   }
 }
 
+.adesc {
+  overflow: auto;
+  div {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $grayLighter;
+  }
+  strong {
+    display: block;
+  }
+}
 
 .gravatar {
   float: left;
@@ -196,6 +214,10 @@ input, textarea, select, .uneditable-input {
   padding: 10px;
   margin-bottom: 15px;
   @include box_sizing;
+}
+
+textarea {
+	height: 100px;
 }
 
 input {

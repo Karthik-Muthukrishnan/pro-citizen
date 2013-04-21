@@ -1,9 +1,19 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <a href="<%= users_area_path(@area) %>">
+  <!-- <a href="<%= users_area_path(@area) %>"> -->
+  <p>
     <strong id="followers" class="stat">
       <%= @area.users.count %>
     </strong>
     followers
-  </a>
+  </p>
+  <p>
+	<strong class = "stat">
+	    <%= @area.posts.count %>
+	</strong>
+	posts
+  <p>
+  <p>
+    <%= render 'follow_form' if signed_in? %>
+  </p>
 </div>

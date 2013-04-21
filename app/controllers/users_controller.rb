@@ -5,8 +5,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(page: params[:page])
-    store_location
+    @areas = @user.areas
   end
+  
+
   
   def new
   	@user = User.new

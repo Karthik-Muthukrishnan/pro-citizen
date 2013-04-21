@@ -1,0 +1,15 @@
+ <% if @areas.any? %>
+     <section>
+     <% if current_user?(@user) %>
+       <h4> My Circles </h4>
+     <% else %>
+    	<h4> Circles </h4>
+    <% end %>    
+        <ol class="posts">
+    		<%= render partial: 'areas/area', collection: @areas %>
+  		</ol>
+  	 <section>	
+    <% end %>
+    <section>
+    	<%= render 'layouts/footer' %>
+    </section>

@@ -1,0 +1,16 @@
+<%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.text_field :email, placeholder: "Email" %>
+
+
+      <%= f.password_field :password, placeholder: "Password" %>
+      <div class = "row">
+      <div class = "span3">
+      <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+      </div>
+      <div class = "span1" style = "float: right" >
+      <%= f.submit "Sign in", class: "btn btn-medium btn-primary" %>
+      </div>
+      </div>
+      
+    <% end %>
